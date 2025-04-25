@@ -11,16 +11,21 @@ class App:
         self.sidebar = Sidebar()
 
         self.content = ft.Container(
-            content=(
-                ft.Text(value='CONTENT')
+            ft.Column(
+                controls=[
+                    ft.Text('Seja bem-vindo ao meu portfólio!', size=30, weight=ft.FontWeight.BOLD),
+                    ft.Text("Apaixonado por tecnologia e resolução de problemas. Tenho experiência com automações em Python e APIs, e adoro transformar desafios em soluções simples e eficientes."),
+                    ft.Divider(height=30),
+                    ft.Text('Em construção!')
+                ]
             )
         )
 
         layout = ft.ResponsiveRow(
             columns=12,
             controls=[
-                self.sidebar,
-                self.content,
+                ft.Column(col={"sm": 12, "md": 4, "lg": 3}, controls=[self.sidebar]),
+                ft.Column(col={"sm": 12, "md": 8, "lg": 9}, controls=[self.content]),
             ],
             expand=True,
         )

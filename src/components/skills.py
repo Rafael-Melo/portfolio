@@ -26,3 +26,30 @@ def SkillRing(title, value):
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True
     )
+
+def SkillProgresseBar(title, value):
+    return ft.Column(
+        controls=[
+            ft.Row(
+                controls=[
+                    ft.Text(value=title, theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value=f'{value:.0%}', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                ],
+                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+            ),
+            ft.ProgressBar(value=value, color=ft.Colors.PRIMARY, bgcolor=ft.Colors.BLACK26),
+            ft.Divider(height=10, color=ft.Colors.BLACK12),
+        ],
+    )
+
+def SkillList(title):
+    return ft.Column(
+        controls=[
+            ft.ListTile(
+                leading=ft.Icon(name=ft.Icons.CHECK, color=ft.Colors.PRIMARY),
+                title=ft.Text(value=title, theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+            )
+        ]
+    )
+    
+

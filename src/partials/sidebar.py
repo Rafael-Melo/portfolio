@@ -1,5 +1,5 @@
 import flet as ft
-from components.skills import SkillRing
+from components.skills import SkillRing, SkillProgresseBar, SkillList
 
 def SidebarHeader():
     return ft.Container(
@@ -59,11 +59,33 @@ def SidebarContent():
         ]
     )
 
-    skills = ft.Container()
+    skills = ft.Column(
+        controls=[
+            SkillProgresseBar(title='Python', value=0.8),
+            SkillProgresseBar(title='HTML', value=0.9),
+            SkillProgresseBar(title='CSS', value=0.9),
+            SkillProgresseBar(title='SQL', value=0.7),
+        ]
+    )
 
-    technologies = ft.Container()
+    technologies = ft.Column(
+        controls=[
+            SkillList(title='Flet'),
+            SkillList(title='Django, Flask, FastApi'),
+            SkillList(title='Versionamento com Git'),
+        ],
+        alignment=ft.MainAxisAlignment.START,
+        spacing=0,
+    )
 
-    cv = ft.Container()
+    cv = ft.TextButton(
+        text='DOWNLOAD CV',
+        style=ft.ButtonStyle(color=ft.Colors.GREY),
+        icon=ft.Icons.DOWNLOAD,
+        icon_color=ft.Colors.GREY,
+        url='https://drive.google.com/uc?export=download&id=1Ell39yCLqAgfkPl2xQhk7moVMImHyrG9'
+        # https://sites.google.com/site/gdocs2direct/?pli=1 - Site para gerar download automático de arquivos do Google Drive
+    )
 
     return ft.Container(
         bgcolor=ft.Colors.BLACK12,
@@ -79,8 +101,13 @@ def SidebarContent():
                 technologies,
                 ft.Divider(height=30),
                 cv,
-            ]
+            ],
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            scroll=ft.ScrollMode.HIDDEN,
+            expand=True,
         ),
+        alignment=ft.alignment.center,
+        expand=True,
     )
 
 def SidebarFooter():
@@ -91,19 +118,19 @@ def SidebarFooter():
             controls=[
                 ft.IconButton(
                     content=ft.Image(src='icons/001-instagram.png', height=15, color=ft.Colors.WHITE),
-                    url='',
+                    url='https://www.instagram.com/rafamelo7/',
                 ),
                 ft.IconButton(
                     content=ft.Image(src='icons/002-linkedin.png', height=15, color=ft.Colors.WHITE),
-                    url='',
+                    url='https://www.linkedin.com/in/rafaelvbdemelo/',
                 ),
                 ft.IconButton(
                     content=ft.Image(src='icons/003-github.png', height=15, color=ft.Colors.WHITE),
-                    url='',
+                    url='https://github.com/Rafael-Melo',
                 ),
                 ft.IconButton(
                     content=ft.Image(src='icons/004-youtube.png', height=15, color=ft.Colors.WHITE),
-                    url='',
+                    url='https://www.youtube.com/@ravielburn',
                 ),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
