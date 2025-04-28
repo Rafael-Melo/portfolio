@@ -1,5 +1,6 @@
 import flet as ft
 from partials.sidebar import Sidebar
+from partials.content import MainContent
 
 class App:
     def __init__(self, page: ft.Page):
@@ -16,7 +17,8 @@ class App:
                     ft.Text('Seja bem-vindo ao meu portfólio!', size=30, weight=ft.FontWeight.BOLD),
                     ft.Text("Apaixonado por tecnologia e resolução de problemas. Tenho experiência com automações em Python e APIs, e adoro transformar desafios em soluções simples e eficientes."),
                     ft.Divider(height=30),
-                    ft.Text('Em construção!')
+                    ft.Text('Em construção!'),
+                    MainContent(),
                 ]
             )
         )
