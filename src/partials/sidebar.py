@@ -1,7 +1,7 @@
 import flet as ft
 from components.skills import SkillRing, SkillProgresseBar, SkillList
 
-def SidebarHeader():
+def sidebar_header():
     return ft.Container(
         content=ft.Column(
             controls=[
@@ -24,7 +24,7 @@ def SidebarHeader():
         alignment=ft.alignment.center,
     )
 
-def SidebarContent():
+def sidebar_content():
     location = ft.Column(
         controls=[
             ft.Row(
@@ -110,7 +110,7 @@ def SidebarContent():
         expand=True,
     )
 
-def SidebarFooter():
+def sidebar_footer():
     return ft.Container(
         padding=ft.padding.symmetric(vertical=10),
         content=ft.Row(
@@ -139,14 +139,14 @@ def SidebarFooter():
         alignment=ft.alignment.center,
     )
 
-def Sidebar():
+def sidebar():
     return ft.Container(
         expand=True,
         content=ft.Column(
             controls=[
-                SidebarHeader(),
-                SidebarContent(),
-                SidebarFooter(),
+                sidebar_header(),
+                sidebar_content(),
+                sidebar_footer(),
             ]
         ),
         bgcolor=ft.Colors.BLACK,
