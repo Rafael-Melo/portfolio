@@ -1,48 +1,244 @@
 import flet as ft
 
-def MainContent():
-    banner = ft.Container(
+def project_item(title, description, url):
+    return ft.Container(
+        col={'xs': 12, 'md': 6, 'lg': 4},
+        padding=ft.padding.all(30),
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        content=ft.Column(
+            controls=[
+                ft.Text(value=title, theme_style=ft.TextThemeStyle.LABEL_LARGE),
+                ft.Text(value=description),
+                ft.TextButton(
+                    content=ft.Row(
+                        controls=[
+                            ft.Text(value='VER PROJETO', theme_style=ft.TextThemeStyle.BODY_LARGE, color=ft.Colors.PRIMARY),
+                            ft.Icon(name=ft.Icons.ARROW_FORWARD_IOS, size=14, color=ft.Colors.PRIMARY)
+                        ],
+                        tight=True,
+                    ),
+                    url=url
+                )
+            ]
+        )
+    )
 
+def price_item():
+    return ft.Container(
+        bgcolor=ft.Colors.ON_SURFACE,
+        padding=ft.padding.symmetric(vertical=20, horizontal=50),
+        content=ft.Column(
+            controls=[
+                ft.Text(value='Pagamento por hora', theme_style=ft.TextThemeStyle.LABEL_LARGE),
+
+            ]
+        )
+    )
+
+def main_content():
+    banner = ft.Container(
+        shadow=ft.BoxShadow(
+            color=ft.Colors.ON_SURFACE,
+            offset=ft.Offset(x=0, y=-60),
+            spread_radius=-30,
+        ),
+        image=ft.DecorationImage(
+            src='img/bg.jpg',
+            fit=ft.ImageFit.COVER,
+            repeat=ft.ImageRepeat.NO_REPEAT,
+            opacity=0.5,
+        ),
+        margin=ft.margin.only(top=30),
+        bgcolor=ft.Colors.BLACK,
+        content=ft.ResponsiveRow(
+            columns=12,
+            vertical_alignment=ft.CrossAxisAlignment.END,
+            controls=[
+                ft.Container(
+                    col={'md': 12, 'lg':8},
+                    padding=ft.padding.all(50),
+                    content=ft.Column(
+                        controls=[
+                            ft.Text(value='Transformando código em soluções reais', theme_style=ft.TextThemeStyle.HEADLINE_LARGE),
+                            ft.Text(
+                                spans=[
+                                    ft.TextSpan(text='<'),
+                                    ft.TextSpan(text='code', style=ft.TextStyle(color=ft.colors.PRIMARY)),
+                                    ft.TextSpan(text='> '),
+
+                                    ft.TextSpan(
+                                        text='Apaixonado por tecnologia e resolução de problemas. Com experiência em automações em Python, criação de APIs, desenvolvimento de apps iOS e Android, softwares para macOS, Windows e Linux, além de websites responsivos. Transformo desafios em soluções simples e eficientes.',
+                                        style=ft.TextStyle(color=ft.Colors.WHITE),
+                                    ),
+                                    ft.TextSpan(text=' </'),
+                                    ft.TextSpan(text='code', style=ft.TextStyle(color=ft.Colors.PRIMARY)),
+                                    ft.TextSpan(text='> '),
+                                ],
+                                theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                            ),
+                            ft.ElevatedButton(
+                                bgcolor=ft.Colors.PRIMARY,
+                                content=ft.Text(value='Explore agora', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
+                                url='#',
+                                style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=0)),
+                            )
+                        ],
+                        spacing=30,
+                        alignment=ft.MainAxisAlignment.CENTER
+                    )
+                ),
+                ft.Container(
+                    col={'md': 12, 'lg':4},
+                    content=ft.Image(
+                        src='img/face-2.png',
+                        width=200,
+                        scale=ft.Scale(scale=1.8)
+                    )
+                )
+            ]
+        )
     )
 
     experience = ft.Container(
+        padding=ft.padding.symmetric(vertical=20),
+        content=ft.ResponsiveRow(
+            columns=12,
+            controls=[
+                ft.Text(
+                    col={'xs': 6, 'md': 3},
+                    spans=[
+                        ft.TextSpan(
+                            text='3 + ',
+                            style=ft.TextStyle(
+                                color=ft.Colors.PRIMARY,
+                                weight=ft.FontWeight.W_900,
+                                size=20,
+                            )
+                        ),
+                        ft.TextSpan(
+                            text=' Anos de experiência',
+                            style=ft.TextStyle(
+                                color=ft.Colors.WHITE,
+                                size=16,
+                            )
+                        ),
+                    ]
+                ),
 
+                ft.Text(
+                    col={'xs': 6, 'md': 3},
+                    spans=[
+                        ft.TextSpan(
+                            text='10 + ',
+                            style=ft.TextStyle(
+                                color=ft.Colors.PRIMARY,
+                                weight=ft.FontWeight.W_900,
+                                size=20,
+                            )
+                        ),
+                        ft.TextSpan(
+                            text=' Automações criadas',
+                            style=ft.TextStyle(
+                                color=ft.Colors.WHITE,
+                                size=16,
+                            )
+                        ),
+                    ]
+                ),
+
+                ft.Text(
+                    col={'xs': 6, 'md': 3},
+                    spans=[
+                        ft.TextSpan(
+                            text='3 + ',
+                            style=ft.TextStyle(
+                                color=ft.Colors.PRIMARY,
+                                weight=ft.FontWeight.W_900,
+                                size=20,
+                            )
+                        ),
+                        ft.TextSpan(
+                            text=' Sistemas internos ativos',
+                            style=ft.TextStyle(
+                                color=ft.Colors.WHITE,
+                                size=16,
+                            )
+                        ),
+                    ]
+                ),
+
+                ft.Text(
+                    col={'xs': 6, 'md': 3},
+                    spans=[
+                        ft.TextSpan(
+                            text='6 + ',
+                            style=ft.TextStyle(
+                                color=ft.Colors.PRIMARY,
+                                weight=ft.FontWeight.W_900,
+                                size=20,
+                            )
+                        ),
+                        ft.TextSpan(
+                            text=' Stacks dominadas',
+                            style=ft.TextStyle(
+                                color=ft.Colors.WHITE,
+                                size=16,
+                            )
+                        ),
+                    ]
+                ),
+            ]
+        )
     )
 
-    projects = ft.Container(
-
+    projects = ft.ResponsiveRow(
+        columns=12,
+        controls=[
+            project_item(title='Calculadora do iPhone', description='Calculadora com o mesmo design do App do iPhone', url=''),
+            project_item(title='ToDo App', description='Aplicativo para gerenciamento de tarefas com integração com banco de dados', url=''),
+            project_item(title='Sistema de Login', description='Sistema completo de autenticação de usuário com suporte a recuperação de senha e cadastro de novos usuários', url=''),
+            project_item(title='Contador', description='Aplicativo que contabiliza os cliques de um botão', url=''),
+        ],
+        spacing=30,
+        run_spacing=30,
     )
 
-    prices = ft.Container(
-
+    prices = ft.ResponsiveRow(
+        columns=12,
+        spacing=30,
+        run_spacing=30,
+        controls=[
+            price_item(),
+            price_item(),
+            price_item(),
+        ]
     )
 
     testimoials = ft.Container(
-
+        content=ft.Text(value='Em contrução')
     )
 
     logos = ft.Container(
-
+        content=ft.Text(value='Em contrução')
     )
 
     footer = ft.Container(
-
+        content=ft.Text(value='Em contrução')
     )
-
 
     return ft.Container(
         expand=True,
         content=ft.Column(
             controls=[
-                ft.Text(value='Conteúdo sendo feito aqui'),
-                banner,
-                experience,
-                projects,
+                # banner,
+                # experience,
+                # projects,
                 prices,
                 testimoials,
                 logos,
                 footer,
-            ]
+            ],
+            scroll=ft.ScrollMode.HIDDEN,
         ),
         bgcolor=ft.Colors.BLACK87,
         padding=ft.padding.all(30),

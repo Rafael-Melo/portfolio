@@ -1,6 +1,6 @@
 import flet as ft
-from partials.sidebar import Sidebar
-from partials.content import MainContent
+from partials.sidebar import sidebar
+from partials.content import main_content
 
 class App:
     def __init__(self, page: ft.Page):
@@ -9,19 +9,9 @@ class App:
         self.main()
 
     def main(self):
-        self.sidebar = Sidebar()
+        self.sidebar = sidebar()
 
-        self.content = ft.Container(
-            ft.Column(
-                controls=[
-                    ft.Text('Seja bem-vindo ao meu portfólio!', size=30, weight=ft.FontWeight.BOLD),
-                    ft.Text("Apaixonado por tecnologia e resolução de problemas. Tenho experiência com automações em Python e APIs, e adoro transformar desafios em soluções simples e eficientes."),
-                    ft.Divider(height=30),
-                    ft.Text('Em construção!'),
-                    MainContent(),
-                ]
-            )
-        )
+        self.content = main_content()
 
         layout = ft.ResponsiveRow(
             columns=12,
