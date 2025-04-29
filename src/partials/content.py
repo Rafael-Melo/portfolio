@@ -1,4 +1,6 @@
 import flet as ft
+from typing import List, Dict, Union
+import math
 
 def project_item(title, description, url):
     return ft.Container(
@@ -23,14 +25,47 @@ def project_item(title, description, url):
         )
     )
 
-def price_item():
+def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
     return ft.Container(
-        bgcolor=ft.Colors.ON_SURFACE,
+        col={'xs': 12, 'md': 6, 'lg': 4},
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
         padding=ft.padding.symmetric(vertical=20, horizontal=50),
         content=ft.Column(
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=30,
             controls=[
                 ft.Text(value='Pagamento por hora', theme_style=ft.TextThemeStyle.LABEL_LARGE),
-
+                ft.Text(
+                    spans=[
+                        ft.TextSpan(text='R$', style=ft.TextStyle(color=ft.Colors.WHITE)),
+                        ft.TextSpan(text=f' {price} ', style=ft.TextStyle(color=ft.Colors.PRIMARY, weight=ft.FontWeight.BOLD, size=50)),
+                        ft.TextSpan(text='/hora', style=ft.TextStyle(color=ft.Colors.WHITE)),
+                    ]
+                ),
+                ft.Column(
+                    controls=[
+                        ft.Row(
+                            controls=[
+                               ft.Icon(
+                                    name=ft.Icons.CHECK if item['is_included'] else ft.Icons.CLOSE,
+                                    color=ft.Colors.PRIMARY,
+                                ),
+                                ft.Text(value=item['title']),
+                            ],
+                            alignment=ft.MainAxisAlignment.CENTER
+                        ) for item in items_included 
+                    ]
+                ),
+                ft.TextButton(
+                    content=ft.Row(
+                        controls=[
+                            ft.Text(value='QUERO ESTE', theme_style=ft.TextThemeStyle.BODY_LARGE, color=ft.Colors.PRIMARY),
+                            ft.Icon(name=ft.Icons.ARROW_FORWARD_IOS, size=14, color=ft.Colors.PRIMARY),
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    ),
+                    url=url,
+                )
             ]
         )
     )
@@ -208,9 +243,49 @@ def main_content():
         spacing=30,
         run_spacing=30,
         controls=[
-            price_item(),
-            price_item(),
-            price_item(),
+            price_item(
+                price=100,
+                url='',
+                items_included=[
+                    {'title':'Prototipagem', 'is_included': True},
+                    {'title':'Desenvolvimento WEB', 'is_included': True},
+                    {'title':'Aplicativo multiplataforma', 'is_included': False},
+                    {'title':'Manutenção por 12 meses', 'is_included': False},
+                ]
+            ),
+            ft.Stack(
+                col={'xs': 12, 'md': 6, 'lg': 4},
+                controls=[
+                    price_item(
+                        price=150,
+                        url='',
+                        items_included=[
+                            {'title':'Prototipagem', 'is_included': True},
+                            {'title':'Desenvolvimento WEB', 'is_included': True},
+                            {'title':'Aplicativo multiplataforma', 'is_included': True},
+                            {'title':'Manutenção por 12 meses', 'is_included': False},
+                        ]
+                    ),
+                    ft.Container(
+                        bgcolor=ft.Colors.PRIMARY,
+                        content=ft.Text(value='Popular', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
+                        padding=ft.padding.symmetric(vertical=5, horizontal=50),
+                        right=-40,
+                        top=15,
+                        rotate=ft.Rotate(angle=math.radians(40)),
+                    )
+                ]
+            ),
+            price_item(
+                price=200,
+                url='',
+                items_included=[
+                    {'title':'Prototipagem', 'is_included': True},
+                    {'title':'Desenvolvimento WEB', 'is_included': True},
+                    {'title':'Aplicativo multiplataforma', 'is_included': True},
+                    {'title':'Manutenção por 12 meses', 'is_included': True},
+                ]
+            ),
         ]
     )
 
