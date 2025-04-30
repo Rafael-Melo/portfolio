@@ -1,6 +1,7 @@
 import flet as ft
 from typing import List, Dict, Union
 import math
+from components.carousel import carousel
 
 def project_item(title, description, url):
     return ft.Container(
@@ -65,6 +66,57 @@ def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
                         alignment=ft.MainAxisAlignment.CENTER
                     ),
                     url=url,
+                )
+            ]
+        )
+    )
+
+def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'img/testimonial-default.jpg'):
+    return ft.Container(
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        padding=ft.padding.all(30),
+        margin=ft.margin.only(top=20),
+        width=400,
+        content=ft.Stack(
+            controls=[
+                ft.Column(
+                    spacing=0,
+                    controls=[
+                        ft.Text(value=user, theme_style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text(value=job, theme_style=ft.TextThemeStyle.LABEL_MEDIUM, italic=True),
+
+                        ft.Container(height=20),
+                        ft.Text(
+                            value=testimonial,
+                            theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                        ),
+
+                        ft.Container(height=20),
+                        ft.Container(
+                            content=ft.Row(
+                                controls=[
+                                    ft.Icon(name=ft.Icons.STAR, color=ft.Colors.PRIMARY, size=16),
+                                    ft.Icon(name=ft.Icons.STAR, color=ft.Colors.PRIMARY, size=16),
+                                    ft.Icon(name=ft.Icons.STAR, color=ft.Colors.PRIMARY, size=16),
+                                    ft.Icon(name=ft.Icons.STAR, color=ft.Colors.PRIMARY, size=16),
+                                    ft.Icon(name=ft.Icons.STAR, color=ft.Colors.PRIMARY, size=16),
+                                ],
+                                tight=True,
+                            ),
+                            bgcolor=ft.Colors.BLACK54,
+                            padding=ft.padding.symmetric(vertical=5, horizontal=10),
+                            border_radius=ft.border_radius.all(50),
+                        )
+                    ]
+                ),
+
+                ft.Image(
+                    src=image_src,
+                    border_radius=ft.border_radius.all(100),
+                    width=100,
+                    top=0,
+                    right=0,
+                    offset=ft.Offset(x=0, y=-0.5)
                 )
             ]
         )
@@ -289,8 +341,33 @@ def main_content():
         ]
     )
 
-    testimoials = ft.Container(
-        content=ft.Text(value='Em contrução')
+    testimonials = carousel(
+        controls=[
+            testimonial_item(
+                user='Paula Rocha',
+                job='Desenvolvedora júnior',
+                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
+                image_src='img/testimonial-1-280x280.jpg'
+            ),
+            testimonial_item(
+                user='Paula Rocha',
+                job='Desenvolvedora júnior',
+                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
+                image_src='img/testimonial-2-280x280.jpg'
+            ),
+            testimonial_item(
+                user='Paula Rocha',
+                job='Desenvolvedora júnior',
+                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
+                image_src='img/testimonial-3-280x280.jpg'
+            ),
+            testimonial_item(
+                user='Paula Rocha',
+                job='Desenvolvedora júnior',
+                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
+                image_src='img/testimonial-4-280x280.jpg'
+            ),
+        ]
     )
 
     logos = ft.Container(
@@ -305,11 +382,11 @@ def main_content():
         expand=True,
         content=ft.Column(
             controls=[
-                # banner,
-                # experience,
-                # projects,
+                banner,
+                experience,
+                projects,
                 prices,
-                testimoials,
+                testimonials,
                 logos,
                 footer,
             ],
