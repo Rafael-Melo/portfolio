@@ -371,7 +371,30 @@ def main_content():
     )
 
     logos = ft.Container(
-        content=ft.Text(value='Em contrução')
+        padding=ft.padding.all(30),
+        opacity=0.6,
+        content=ft.ResponsiveRow(
+            controls=[
+                ft.Image(
+                    src='img/brand-1-464x512.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                ),
+                ft.Image(
+                    src='img/brand-2-458x512.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                ),
+                ft.Image(
+                    src='img/brand-3-456x512.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                ),
+                ft.Image(
+                    src='img/brand-1-464x512.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                ),
+            ],
+            spacing=30,
+            run_spacing=30,
+        )
     )
 
     footer = ft.Container(
