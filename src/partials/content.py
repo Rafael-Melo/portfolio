@@ -150,7 +150,7 @@ def main_content():
                             ft.Text(
                                 spans=[
                                     ft.TextSpan(text='<'),
-                                    ft.TextSpan(text='code', style=ft.TextStyle(color=ft.colors.PRIMARY)),
+                                    ft.TextSpan(text='code', style=ft.TextStyle(color=ft.Colors.PRIMARY)),
                                     ft.TextSpan(text='> '),
 
                                     ft.TextSpan(
@@ -398,7 +398,30 @@ def main_content():
     )
 
     footer = ft.Container(
-        content=ft.Text(value='Em contrução')
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        padding=ft.padding.all(30),
+        content=ft.ResponsiveRow(
+            columns=12,
+            controls=[
+                ft.Text(
+                    col={'xs': 12, 'md': 6},
+                    value='© 2025 Todos os direitos reservados.',
+                    theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                ),
+                ft.Text(
+                    col={'xs': 12, 'md': 6},
+                    spans=[
+                        ft.TextSpan(text='Email: '),
+                        ft.TextSpan(
+                            text='rafael.vilas@gmail.com',
+                            url='mailto:rafael.vilas@gmail.com'
+                        )
+                    ],
+                    theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                    text_align=ft.TextAlign.END,
+                )
+            ]
+        )
     )
 
     return ft.Container(
