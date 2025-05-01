@@ -16,8 +16,8 @@ class App:
         layout = ft.ResponsiveRow(
             columns=12,
             controls=[
-                ft.Column(col={"sm": 12, "md": 4, "lg": 3}, controls=[self.sidebar]),
-                ft.Column(col={"sm": 12, "md": 8, "lg": 9}, controls=[self.content]),
+                ft.Column(col={"xs": 0, "md": 5, "lg": 4, "xxl": 3}, controls=[self.sidebar]),
+                ft.Column(col={"xs": 12, "md": 7, "lg": 8, "xxl": 9}, controls=[self.content]),
             ],
             expand=True,
         )
