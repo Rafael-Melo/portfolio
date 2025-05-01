@@ -125,7 +125,7 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
 def main_content():
     banner = ft.Container(
         shadow=ft.BoxShadow(
-            color=ft.Colors.ON_SURFACE,
+            color=ft.Colors.ON_INVERSE_SURFACE,
             offset=ft.Offset(x=0, y=-60),
             spread_radius=-30,
         ),
@@ -179,7 +179,7 @@ def main_content():
                     content=ft.Image(
                         src='img/face-2.png',
                         width=200,
-                        scale=ft.Scale(scale=1.8)
+                        # scale=ft.Scale(scale=1.8)
                     )
                 )
             ]
@@ -447,6 +447,6 @@ def main_content():
             ],
             scroll=ft.ScrollMode.HIDDEN,
         ),
-        bgcolor=ft.Colors.BLACK87,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.all(30),
     )

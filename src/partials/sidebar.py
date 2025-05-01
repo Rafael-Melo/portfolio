@@ -88,7 +88,7 @@ def sidebar_content():
     )
 
     return ft.Container(
-        bgcolor=ft.Colors.BLACK12,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.all(20),
         content=ft.Column(
             controls=[
@@ -149,5 +149,5 @@ def sidebar():
                 sidebar_footer(),
             ]
         ),
-        bgcolor=ft.Colors.BLACK,
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
     )
