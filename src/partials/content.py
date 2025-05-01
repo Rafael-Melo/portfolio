@@ -424,14 +424,23 @@ def main_content():
         )
     )
 
+    def sections_title(title: str):
+        return ft.Container(
+            padding=ft.padding.symmetric(vertical=20),
+            content=ft.Text(value=title, theme_style=ft.TextThemeStyle.HEADLINE_MEDIUM)
+        )
+
     return ft.Container(
         expand=True,
         content=ft.Column(
             controls=[
                 banner,
                 experience,
+                sections_title(title='Projetos'),
                 projects,
+                sections_title(title='Preços'),
                 prices,
+                sections_title(title='Recomendações'),
                 testimonials,
                 logos,
                 footer,
