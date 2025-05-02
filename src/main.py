@@ -2,6 +2,13 @@ import flet as ft
 from partials.sidebar import sidebar
 from partials.content import main_content
 
+# xs      <576px
+# sm      ≥576px
+# md      ≥768px
+# lg      ≥992px
+# xl      ≥1200px
+# xxl     ≥1400px
+
 class AppTheme:
     theme = ft.Theme(
         color_scheme=ft.ColorScheme(
@@ -84,12 +91,14 @@ class App:
 
     def main(self):
         self.sidebar = ft.Container(
-            col={'xs': 12, 'md': 5, 'xxl': 3},
+            # col={"sm": 12, "md": 4, "lg": 3},
+            col={"xs": 0, "md": 5, "lg": 4, "xxl": 3},
             content=sidebar()
         )
 
         self.content = ft.Container(
-            col={'xs': 0, 'md': 7, 'xxl': 9},
+            # col={"sm": 12, "md": 8, "lg": 9},
+            col={"xs": 12, "md": 7, "lg": 8, "xxl": 9},
             content=main_content()
         )
 

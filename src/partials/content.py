@@ -7,7 +7,7 @@ def project_item(title, description, url):
     return ft.Container(
         col={'xs': 12, 'md': 6, 'lg': 4},
         padding=ft.padding.all(30),
-        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         content=ft.Column(
             controls=[
                 ft.Text(value=title, theme_style=ft.TextThemeStyle.LABEL_LARGE),
@@ -29,7 +29,7 @@ def project_item(title, description, url):
 def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
     return ft.Container(
         col={'xs': 12, 'md': 6, 'lg': 4},
-        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.symmetric(vertical=20, horizontal=50),
         content=ft.Column(
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -73,7 +73,7 @@ def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
 
 def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'img/testimonial-default.jpg'):
     return ft.Container(
-        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.all(30),
         margin=ft.margin.only(top=20),
         width=400,
@@ -123,9 +123,10 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
     )
 
 def main_content():
+
     banner = ft.Container(
         shadow=ft.BoxShadow(
-            color=ft.Colors.ON_INVERSE_SURFACE,
+            color=ft.Colors.PRIMARY_CONTAINER,
             offset=ft.Offset(x=0, y=-60),
             spread_radius=-30,
         ),
@@ -164,10 +165,21 @@ def main_content():
                                 theme_style=ft.TextThemeStyle.BODY_MEDIUM,
                             ),
                             ft.ElevatedButton(
-                                bgcolor=ft.Colors.PRIMARY,
                                 content=ft.Text(value='Explore agora', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
-                                url='#',
-                                style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=0)),
+                                # url='#',
+                                on_click=lambda e: e.page.scroll_to(key="pjt", duration=600, curve=ft.AnimationCurve.EASE),
+                                style=ft.ButtonStyle(
+                                    bgcolor={
+                                        ft.ControlState.DEFAULT: ft.Colors.PRIMARY,
+                                        ft.ControlState.HOVERED: ft.Colors.INDIGO,
+                                        ft.ControlState.FOCUSED: ft.Colors.BLUE,
+                                    },
+                                    shape={
+                                        ft.ControlState.DEFAULT: ft.RoundedRectangleBorder(radius=0),
+                                        ft.ControlState.HOVERED: ft.StadiumBorder(),
+                                    },
+                                    animation_duration=1000,
+                                ),
                             )
                         ],
                         spacing=30,
@@ -373,32 +385,49 @@ def main_content():
     logos = ft.Container(
         padding=ft.padding.all(30),
         opacity=0.6,
+        alignment=ft.alignment.center,
         content=ft.ResponsiveRow(
             controls=[
                 ft.Image(
-                    src='img/brand-1-464x512.png',
+                    src='img/logo_01.png',
                     col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
                 ),
                 ft.Image(
-                    src='img/brand-2-458x512.png',
+                    src='img/logo_02.png',
                     col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
                 ),
                 ft.Image(
-                    src='img/brand-3-456x512.png',
+                    src='img/logo_03.png',
                     col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
                 ),
                 ft.Image(
-                    src='img/brand-1-464x512.png',
+                    src='img/logo_04.png',
                     col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
+                ),
+                ft.Image(
+                    src='img/logo_05.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
+                ),
+                ft.Image(
+                    src='img/logo_06.png',
+                    col={'xs': 6, 'lg': 3, 'xl': 2},
+                    filter_quality=ft.FilterQuality.HIGH,
                 ),
             ],
             spacing=30,
             run_spacing=30,
+            alignment=ft.MainAxisAlignment.CENTER,
+            vertical_alignment=ft.CrossAxisAlignment.CENTER
         )
     )
 
     footer = ft.Container(
-        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.all(30),
         content=ft.ResponsiveRow(
             columns=12,
@@ -424,10 +453,10 @@ def main_content():
         )
     )
 
-    def sections_title(title: str):
+    def sections_title(title: str, key: str = None):
         return ft.Container(
             padding=ft.padding.symmetric(vertical=20),
-            content=ft.Text(value=title, theme_style=ft.TextThemeStyle.HEADLINE_MEDIUM)
+            content=ft.Text(value=title, key=key, theme_style=ft.TextThemeStyle.HEADLINE_MEDIUM)
         )
 
     return ft.Container(
@@ -435,8 +464,9 @@ def main_content():
         content=ft.Column(
             controls=[
                 banner,
+                ft.Divider(height=30),
                 experience,
-                sections_title(title='Projetos'),
+                sections_title(title='Projetos', key="pjt"),
                 projects,
                 sections_title(title='Preços'),
                 prices,
@@ -445,8 +475,8 @@ def main_content():
                 logos,
                 footer,
             ],
-            scroll=ft.ScrollMode.HIDDEN,
+            scroll=ft.ScrollMode.ALWAYS,
         ),
-        bgcolor=ft.Colors.PRIMARY_CONTAINER,
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
         padding=ft.padding.all(30),
     )
