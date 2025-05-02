@@ -3,6 +3,66 @@ from typing import List, Dict, Union
 import math
 from components.carousel import carousel
 
+def about_me_section():
+    return ft.Container(
+        padding=ft.padding.all(30),
+        bgcolor=ft.Colors.ON_INVERSE_SURFACE,
+        border_radius=ft.border_radius.all(10),
+        content=ft.Column(
+            spacing=20,
+            controls=[
+                # Parte profissional
+                ft.Row(
+                    spacing=10,
+                    vertical_alignment=ft.CrossAxisAlignment.START,
+                    controls=[
+                        ft.Icon(name=ft.Icons.PERSON, color=ft.Colors.PRIMARY),
+                        ft.Text(
+                            value="""Sou Rafael Melo, desenvolvedor Python apaixonado por resolver problemas reais com tecnologia.
+Atualmente atuo na Natura Flores, criando automações, APIs e sistemas internos que tornam os processos mais eficientes.""",
+                            theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                            text_align=ft.TextAlign.JUSTIFY,
+                            expand=True,
+                        )
+                    ]
+                ),
+
+                # Curiosidades e personalidade
+                ft.Row(
+                    spacing=10,
+                    vertical_alignment=ft.CrossAxisAlignment.START,
+                    controls=[
+                        ft.Icon(name=ft.Icons.LIGHTBULB_OUTLINE, color=ft.Colors.PRIMARY),
+                        ft.Text(
+                            value="""Acredito que uma solução simples bem feita pode transformar a rotina de um time inteiro.
+Gosto de código limpo, desafios técnicos e de estar sempre aprendendo.""",
+                            theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                            text_align=ft.TextAlign.JUSTIFY,
+                            expand=True,
+                        )
+                    ]
+                ),
+
+                # Vida pessoal e hobbies
+                ft.Row(
+                    spacing=10,
+                    vertical_alignment=ft.CrossAxisAlignment.START,
+                    controls=[
+                        ft.Icon(name=ft.Icons.FAVORITE_BORDER, color=ft.Colors.PRIMARY),
+                        ft.Text(
+                            value="""Nas horas vagas, curto RPGs, HQs, viagens com a família e inventar histórias pro meu projeto de HQ digital.
+Também adoro explorar novas tecnologias e aprender coisas novas todos os dias.""",
+                            theme_style=ft.TextThemeStyle.BODY_MEDIUM,
+                            text_align=ft.TextAlign.JUSTIFY,
+                            expand=True,
+                        )
+                    ]
+                )
+            ]
+        )
+    )
+
+
 def project_item(title, description, url):
     return ft.Container(
         col={'xs': 12, 'md': 6, 'lg': 4},
@@ -26,47 +86,63 @@ def project_item(title, description, url):
         )
     )
 
-def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
+# def price_item(price: int, url: str, items_included: List[Dict[str, bool]]):
+#     return ft.Container(
+#         col={'xs': 12, 'md': 6, 'lg': 4},
+#         bgcolor=ft.Colors.PRIMARY_CONTAINER,
+#         padding=ft.padding.symmetric(vertical=20, horizontal=50),
+#         content=ft.Column(
+#             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+#             spacing=30,
+#             controls=[
+#                 ft.Text(value='Pagamento por hora', theme_style=ft.TextThemeStyle.LABEL_LARGE),
+#                 ft.Text(
+#                     spans=[
+#                         ft.TextSpan(text='R$', style=ft.TextStyle(color=ft.Colors.WHITE)),
+#                         ft.TextSpan(text=f' {price} ', style=ft.TextStyle(color=ft.Colors.PRIMARY, weight=ft.FontWeight.BOLD, size=50)),
+#                         ft.TextSpan(text='/hora', style=ft.TextStyle(color=ft.Colors.WHITE)),
+#                     ]
+#                 ),
+#                 ft.Column(
+#                     controls=[
+#                         ft.Row(
+#                             controls=[
+#                                ft.Icon(
+#                                     name=ft.Icons.CHECK if item['is_included'] else ft.Icons.CLOSE,
+#                                     color=ft.Colors.PRIMARY,
+#                                 ),
+#                                 ft.Text(value=item['title']),
+#                             ],
+#                             alignment=ft.MainAxisAlignment.CENTER
+#                         ) for item in items_included 
+#                     ]
+#                 ),
+#                 ft.TextButton(
+#                     content=ft.Row(
+#                         controls=[
+#                             ft.Text(value='QUERO ESTE', theme_style=ft.TextThemeStyle.BODY_LARGE, color=ft.Colors.PRIMARY),
+#                             ft.Icon(name=ft.Icons.ARROW_FORWARD_IOS, size=14, color=ft.Colors.PRIMARY),
+#                         ],
+#                         alignment=ft.MainAxisAlignment.CENTER
+#                     ),
+#                     url=url,
+#                 )
+#             ]
+#         )
+#     )
+
+def workflow_step(emoji: str, title: str, description: str) -> ft.Container:
     return ft.Container(
         col={'xs': 12, 'md': 6, 'lg': 4},
         bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.symmetric(vertical=20, horizontal=50),
+        border_radius=ft.border_radius.all(10),
         content=ft.Column(
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             spacing=30,
             controls=[
-                ft.Text(value='Pagamento por hora', theme_style=ft.TextThemeStyle.LABEL_LARGE),
-                ft.Text(
-                    spans=[
-                        ft.TextSpan(text='R$', style=ft.TextStyle(color=ft.Colors.WHITE)),
-                        ft.TextSpan(text=f' {price} ', style=ft.TextStyle(color=ft.Colors.PRIMARY, weight=ft.FontWeight.BOLD, size=50)),
-                        ft.TextSpan(text='/hora', style=ft.TextStyle(color=ft.Colors.WHITE)),
-                    ]
-                ),
-                ft.Column(
-                    controls=[
-                        ft.Row(
-                            controls=[
-                               ft.Icon(
-                                    name=ft.Icons.CHECK if item['is_included'] else ft.Icons.CLOSE,
-                                    color=ft.Colors.PRIMARY,
-                                ),
-                                ft.Text(value=item['title']),
-                            ],
-                            alignment=ft.MainAxisAlignment.CENTER
-                        ) for item in items_included 
-                    ]
-                ),
-                ft.TextButton(
-                    content=ft.Row(
-                        controls=[
-                            ft.Text(value='QUERO ESTE', theme_style=ft.TextThemeStyle.BODY_LARGE, color=ft.Colors.PRIMARY),
-                            ft.Icon(name=ft.Icons.ARROW_FORWARD_IOS, size=14, color=ft.Colors.PRIMARY),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER
-                    ),
-                    url=url,
-                )
+                ft.Text(value=f"{emoji} {title}", theme_style=ft.TextThemeStyle.LABEL_LARGE),
+                ft.Text(value=description, theme_style=ft.TextThemeStyle.BODY_MEDIUM)
             ]
         )
     )
@@ -123,7 +199,6 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
     )
 
 def main_content():
-
     banner = ft.Container(
         shadow=ft.BoxShadow(
             color=ft.Colors.PRIMARY_CONTAINER,
@@ -167,7 +242,7 @@ def main_content():
                             ft.ElevatedButton(
                                 content=ft.Text(value='Explore agora', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
                                 # url='#',
-                                on_click=lambda e: e.page.scroll_to(key="pjt", duration=600, curve=ft.AnimationCurve.EASE),
+                                on_click=lambda e: e.page.scroll_to(key="pjt", duration=3000, curve=ft.AnimationCurve.EASE),
                                 style=ft.ButtonStyle(
                                     bgcolor={
                                         ft.ControlState.DEFAULT: ft.Colors.PRIMARY,
@@ -189,7 +264,7 @@ def main_content():
                 ft.Container(
                     col={'md': 12, 'lg':4},
                     content=ft.Image(
-                        src='img/face-2.png',
+                        src='img/perfil_03.png',
                         width=200,
                         # scale=ft.Scale(scale=1.8)
                     )
@@ -197,6 +272,8 @@ def main_content():
             ]
         )
     )
+
+    about_me = about_me_section()
 
     experience = ft.Container(
         padding=ft.padding.symmetric(vertical=20),
@@ -302,70 +379,83 @@ def main_content():
         run_spacing=30,
     )
 
-    prices = ft.ResponsiveRow(
+    # prices = ft.ResponsiveRow(
+    #     columns=12,
+    #     spacing=30,
+    #     run_spacing=30,
+    #     controls=[
+    #         price_item(
+    #             price=100,
+    #             url='',
+    #             items_included=[
+    #                 {'title':'Prototipagem', 'is_included': True},
+    #                 {'title':'Desenvolvimento WEB', 'is_included': True},
+    #                 {'title':'Aplicativo multiplataforma', 'is_included': False},
+    #                 {'title':'Manutenção por 12 meses', 'is_included': False},
+    #             ]
+    #         ),
+    #         ft.Stack(
+    #             col={'xs': 12, 'md': 6, 'lg': 4},
+    #             controls=[
+    #                 price_item(
+    #                     price=150,
+    #                     url='',
+    #                     items_included=[
+    #                         {'title':'Prototipagem', 'is_included': True},
+    #                         {'title':'Desenvolvimento WEB', 'is_included': True},
+    #                         {'title':'Aplicativo multiplataforma', 'is_included': True},
+    #                         {'title':'Manutenção por 12 meses', 'is_included': False},
+    #                     ]
+    #                 ),
+    #                 ft.Container(
+    #                     bgcolor=ft.Colors.PRIMARY,
+    #                     content=ft.Text(value='Popular', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
+    #                     padding=ft.padding.symmetric(vertical=5, horizontal=50),
+    #                     right=-40,
+    #                     top=15,
+    #                     rotate=ft.Rotate(angle=math.radians(40)),
+    #                 )
+    #             ]
+    #         ),
+    #         price_item(
+    #             price=200,
+    #             url='',
+    #             items_included=[
+    #                 {'title':'Prototipagem', 'is_included': True},
+    #                 {'title':'Desenvolvimento WEB', 'is_included': True},
+    #                 {'title':'Aplicativo multiplataforma', 'is_included': True},
+    #                 {'title':'Manutenção por 12 meses', 'is_included': True},
+    #             ]
+    #         ),
+    #     ]
+    # )
+
+    how_i_work = ft.ResponsiveRow(
         columns=12,
         spacing=30,
         run_spacing=30,
         controls=[
-            price_item(
-                price=100,
-                url='',
-                items_included=[
-                    {'title':'Prototipagem', 'is_included': True},
-                    {'title':'Desenvolvimento WEB', 'is_included': True},
-                    {'title':'Aplicativo multiplataforma', 'is_included': False},
-                    {'title':'Manutenção por 12 meses', 'is_included': False},
-                ]
-            ),
-            ft.Stack(
-                col={'xs': 12, 'md': 6, 'lg': 4},
-                controls=[
-                    price_item(
-                        price=150,
-                        url='',
-                        items_included=[
-                            {'title':'Prototipagem', 'is_included': True},
-                            {'title':'Desenvolvimento WEB', 'is_included': True},
-                            {'title':'Aplicativo multiplataforma', 'is_included': True},
-                            {'title':'Manutenção por 12 meses', 'is_included': False},
-                        ]
-                    ),
-                    ft.Container(
-                        bgcolor=ft.Colors.PRIMARY,
-                        content=ft.Text(value='Popular', color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD),
-                        padding=ft.padding.symmetric(vertical=5, horizontal=50),
-                        right=-40,
-                        top=15,
-                        rotate=ft.Rotate(angle=math.radians(40)),
-                    )
-                ]
-            ),
-            price_item(
-                price=200,
-                url='',
-                items_included=[
-                    {'title':'Prototipagem', 'is_included': True},
-                    {'title':'Desenvolvimento WEB', 'is_included': True},
-                    {'title':'Aplicativo multiplataforma', 'is_included': True},
-                    {'title':'Manutenção por 12 meses', 'is_included': True},
-                ]
-            ),
+            workflow_step("📌", "Identificação do problema", "Entendo os desafios do time e os gargalos dos processos."),
+            workflow_step("🛠️", "Planejamento da solução", "Analiso os sistemas e planejo uma automação ou integração."),
+            workflow_step("👨‍💻", "Desenvolvimento", "Crio APIs, scripts ou aplicações em Python com foco em eficiência."),
+            workflow_step("🧪", "Testes e validação", "Valido a entrega com os usuários e realizo ajustes quando necessário."),
+            workflow_step("🚀", "Implantação e suporte", "Implanto a solução e monitoro os resultados no dia a dia."),
         ]
     )
 
     testimonials = carousel(
         controls=[
             testimonial_item(
-                user='Paula Rocha',
-                job='Desenvolvedora júnior',
-                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
-                image_src='img/testimonial-1-280x280.jpg'
+                user='Aline de Carvalho Silva',
+                job='Desenvolvedora Júnior',
+                testimonial='O Rafael é um desenvolvedor extremamente dedicado e curioso. Está sempre em busca de novos aprendizados para aplicar em seus projetos e evoluir constantemente.',
+                image_src='img/testimonial_01.jpg'
             ),
             testimonial_item(
-                user='Paula Rocha',
-                job='Desenvolvedora júnior',
-                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
-                image_src='img/testimonial-2-280x280.jpg'
+                user='Jean Carlo Gomes da Silva',
+                job='Analista de Dados',
+                testimonial='Um dos grandes diferenciais do Rafael é sua habilidade de comunicação. Ele consegue alinhar ideias com clareza, o que facilita muito o trabalho em equipe.',
+                image_src='img/testimonial_02.jpg'
             ),
             testimonial_item(
                 user='Paula Rocha',
@@ -466,10 +556,15 @@ def main_content():
                 banner,
                 ft.Divider(height=30),
                 experience,
+                sections_title(title='Sobre mim'),
+                about_me,
+                ft.Divider(height=30),
                 sections_title(title='Projetos', key="pjt"),
                 projects,
-                sections_title(title='Preços'),
-                prices,
+                # sections_title(title='Preços'),
+                # prices,
+                sections_title(title='Como eu trabalho'),
+                how_i_work,
                 sections_title(title='Recomendações'),
                 testimonials,
                 logos,
