@@ -50,7 +50,7 @@ Gosto de código limpo, desafios técnicos e de estar sempre aprendendo.""",
                     controls=[
                         ft.Icon(name=ft.Icons.FAVORITE_BORDER, color=ft.Colors.PRIMARY),
                         ft.Text(
-                            value="""Nas horas vagas, curto RPGs, HQs, viagens com a família e inventar histórias pro meu projeto de HQ digital.
+                            value="""Nas horas vagas, curto viagens com a família, RPGs, HQs e inventar histórias pro meu projeto de HQ digital.
 Também adoro explorar novas tecnologias e aprender coisas novas todos os dias.""",
                             theme_style=ft.TextThemeStyle.BODY_MEDIUM,
                             text_align=ft.TextAlign.JUSTIFY,
@@ -447,7 +447,7 @@ def main_content():
         controls=[
             testimonial_item(
                 user='Aline de Carvalho Silva',
-                job='Desenvolvedora Júnior',
+                job='Cientista de Dados',
                 testimonial='O Rafael é um desenvolvedor extremamente dedicado e curioso. Está sempre em busca de novos aprendizados para aplicar em seus projetos e evoluir constantemente.',
                 image_src='img/testimonial_01.jpg'
             ),
