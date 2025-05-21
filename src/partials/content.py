@@ -206,7 +206,7 @@ def main_content():
             spread_radius=-30,
         ),
         image=ft.DecorationImage(
-            src='img/bg.jpg',
+            src='img/bg2.jpg',
             fit=ft.ImageFit.COVER,
             repeat=ft.ImageRepeat.NO_REPEAT,
             opacity=0.5,
@@ -264,7 +264,7 @@ def main_content():
                 ft.Container(
                     col={'md': 12, 'lg':4},
                     content=ft.Image(
-                        src='img/perfil_03.png',
+                        src='img/Perfil_05.png',
                         width=200,
                         # scale=ft.Scale(scale=1.8)
                     )
@@ -458,16 +458,16 @@ def main_content():
                 image_src='img/testimonial_02.jpg'
             ),
             testimonial_item(
-                user='Paula Rocha',
-                job='Desenvolvedora júnior',
-                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
-                image_src='img/testimonial-3-280x280.jpg'
+                user='Vaniely Kreitlo',
+                job='Analista de Sistemas',
+                testimonial='Tive a oportunidade de trabalhar com o Rafael, ele é muito comunicativo, possui grande facilidade para trabalhar em equipe. Ele está sempre em busca de novos conhecimentos e possui aprendizado rápido.',
+                image_src='img/testimonial_03.jpeg'
             ),
             testimonial_item(
-                user='Paula Rocha',
-                job='Desenvolvedora júnior',
-                testimonial='O trabalho do Rafael é realmente muito incrível, seus projetos são muito bonitos! Nunca pensei que desse pra clonar um site inteiro apenas com Python',
-                image_src='img/testimonial-4-280x280.jpg'
+                user='Anônimo',
+                job='Desenvolvedor júnior',
+                testimonial='Rafael tem um domínio impressionante de Python e atenção aos detalhes. Fiquei surpreso com sua capacidade de replicar interfaces complexas de forma fiel e funcional.',
+                image_src='img/testimonial-default.jpg'
             ),
         ]
     )
@@ -530,7 +530,7 @@ def main_content():
                 ft.Text(
                     col={'xs': 12, 'md': 6},
                     spans=[
-                        ft.TextSpan(text='Email: '),
+                        ft.TextSpan(text='E-mail: '),
                         ft.TextSpan(
                             text='rafael.vilas@gmail.com',
                             url='mailto:rafael.vilas@gmail.com'
