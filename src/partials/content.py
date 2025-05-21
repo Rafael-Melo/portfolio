@@ -198,7 +198,9 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
         )
     )
 
-def main_content():
+def main_content(dark_mode: bool = True):
+    bg_image = 'img/bg-dark.jpg' if dark_mode else 'img/bg-light.png'
+
     banner = ft.Container(
         shadow=ft.BoxShadow(
             color=ft.Colors.PRIMARY_CONTAINER,
@@ -206,7 +208,7 @@ def main_content():
             spread_radius=-30,
         ),
         image=ft.DecorationImage(
-            src='img/bg2.jpg',
+            src=bg_image,
             fit=ft.ImageFit.COVER,
             repeat=ft.ImageRepeat.NO_REPEAT,
             opacity=0.5,
@@ -246,8 +248,7 @@ def main_content():
                                 style=ft.ButtonStyle(
                                     bgcolor={
                                         ft.ControlState.DEFAULT: ft.Colors.PRIMARY,
-                                        ft.ControlState.HOVERED: ft.Colors.INDIGO,
-                                        ft.ControlState.FOCUSED: ft.Colors.BLUE,
+                                        ft.ControlState.HOVERED: ft.Colors.SECONDARY,
                                     },
                                     shape={
                                         ft.ControlState.DEFAULT: ft.RoundedRectangleBorder(radius=0),
