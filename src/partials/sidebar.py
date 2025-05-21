@@ -80,9 +80,9 @@ def sidebar_content():
 
     cv = ft.TextButton(
         text='DOWNLOAD CV',
-        style=ft.ButtonStyle(color=ft.Colors.GREY),
+        style=ft.ButtonStyle(color=ft.Colors.TERTIARY),
         icon=ft.Icons.DOWNLOAD,
-        icon_color=ft.Colors.GREY,
+        icon_color=ft.Colors.TERTIARY,
         url='https://drive.google.com/uc?export=download&id=1Ell39yCLqAgfkPl2xQhk7moVMImHyrG9'
         # https://sites.google.com/site/gdocs2direct/?pli=1 - Site para gerar download automático de arquivos do Google Drive
     )
@@ -117,19 +117,19 @@ def sidebar_footer():
             expand=True,
             controls=[
                 ft.IconButton(
-                    content=ft.Image(src='icons/001-instagram.png', height=15, color=ft.Colors.WHITE),
+                    content=ft.Image(src='icons/001-instagram.png', height=15, color=ft.Colors.TERTIARY),
                     url='https://www.instagram.com/rafamelo7/',
                 ),
                 ft.IconButton(
-                    content=ft.Image(src='icons/002-linkedin.png', height=15, color=ft.Colors.WHITE),
+                    content=ft.Image(src='icons/002-linkedin.png', height=15, color=ft.Colors.TERTIARY),
                     url='https://www.linkedin.com/in/rafaelvbdemelo/',
                 ),
                 ft.IconButton(
-                    content=ft.Image(src='icons/003-github.png', height=15, color=ft.Colors.WHITE),
+                    content=ft.Image(src='icons/003-github.png', height=15, color=ft.Colors.TERTIARY),
                     url='https://github.com/Rafael-Melo',
                 ),
                 ft.IconButton(
-                    content=ft.Image(src='icons/004-youtube.png', height=15, color=ft.Colors.WHITE),
+                    content=ft.Image(src='icons/004-youtube.png', height=15, color=ft.Colors.TERTIARY),
                     url='https://www.youtube.com/@ravielburn',
                 ),
             ],

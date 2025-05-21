@@ -295,7 +295,7 @@ def main_content(dark_mode: bool = True):
                         ft.TextSpan(
                             text=' Anos de experiência',
                             style=ft.TextStyle(
-                                color=ft.Colors.WHITE,
+                                color=ft.Colors.TERTIARY,
                                 size=16,
                             )
                         ),
@@ -316,7 +316,7 @@ def main_content(dark_mode: bool = True):
                         ft.TextSpan(
                             text=' Automações criadas',
                             style=ft.TextStyle(
-                                color=ft.Colors.WHITE,
+                                color=ft.Colors.TERTIARY,
                                 size=16,
                             )
                         ),
@@ -337,7 +337,7 @@ def main_content(dark_mode: bool = True):
                         ft.TextSpan(
                             text=' Sistemas internos ativos',
                             style=ft.TextStyle(
-                                color=ft.Colors.WHITE,
+                                color=ft.Colors.TERTIARY,
                                 size=16,
                             )
                         ),
@@ -358,7 +358,7 @@ def main_content(dark_mode: bool = True):
                         ft.TextSpan(
                             text=' Stacks dominadas',
                             style=ft.TextStyle(
-                                color=ft.Colors.WHITE,
+                                color=ft.Colors.TERTIARY,
                                 size=16,
                             )
                         ),

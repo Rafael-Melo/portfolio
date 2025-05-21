@@ -14,6 +14,7 @@ class AppTheme:
         color_scheme=ft.ColorScheme(
             primary=ft.Colors.DEEP_PURPLE,
             secondary=ft.Colors.INDIGO,
+            tertiary=ft.Colors.WHITE,
             on_inverse_surface='#2d2d3a',
             primary_container='#20202a'
         ),
@@ -60,7 +61,8 @@ class AppTheme:
         color_scheme=ft.ColorScheme(
             primary=ft.Colors.INDIGO,
             secondary=ft.Colors.BLUE,
-            on_inverse_surface=ft.Colors.GREY_400,
+            tertiary='#373535',
+            on_inverse_surface=ft.Colors.GREY_200,
             primary_container=ft.Colors.GREY_300
         ),
         text_theme=ft.TextTheme(
