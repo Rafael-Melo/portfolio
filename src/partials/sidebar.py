@@ -111,7 +111,7 @@ def sidebar_content():
         style=ft.ButtonStyle(color=ft.Colors.TERTIARY),
         icon=ft.Icons.DOWNLOAD,
         icon_color=ft.Colors.TERTIARY,
-        url='https://drive.google.com/uc?export=download&id=1Ell39yCLqAgfkPl2xQhk7moVMImHyrG9'
+        url='https://drive.google.com/uc?export=download&id=1Iehcni9yw593oJga-PWou0Em8AhE0bLE'
         # https://sites.google.com/site/gdocs2direct/?pli=1 - Site para gerar download automático de arquivos do Google Drive
     )
 
