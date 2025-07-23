@@ -1,81 +1,67 @@
-# Portifolio app
+# 🚀 Rafael Melo's Portfolio
 
-## Run the app
+Welcome to my portfolio, developed with [Flet](https://flet.dev) — a modern Python framework for building web, desktop, and mobile apps from a single codebase.
 
-### uv
+![Portfolio Preview](assets/img/preview.png)
 
-Run as a desktop app:
+---
 
+## 🧑‍💻 About Me
+
+I'm a Python developer passionate about **automation**, **API development**, and **cross-platform solutions**. I focus on turning complex challenges into efficient and elegant results.
+
+**Main skills and interests:**
+
+- Python (Flet, FastAPI, Django, Flask)
+- RESTful API development
+- SQL and NoSQL databases
+- Web scraping and process automation
+- Linux and Docker
+- Responsive apps for Windows, macOS, Linux, iOS & Android
+
+---
+
+## 🧰 Tech Stack
+
+| Category       | Technologies                                                              |
+|----------------|---------------------------------------------------------------------------|
+| **Frontend**    | Flet, HTML, CSS                                                           |
+| **Backend**     | Python, FastAPI, Django, Flask, REST APIs                                 |
+| **Databases**   | PostgreSQL, SQLite, SQLAlchemy, MongoDB                                   |
+| **DevOps**      | Docker, Git/GitHub                                                        |
+| **Other Tools** | Pytest, Selenium, Requests, Pandas                                        |
+
+---
+
+## 📁 Project Structure
+
+```bash
+.
+├── assets/                 # Static files, images, icons
+├── components/             # Reusable UI components (skills, testimonials, etc.)
+├── partials/               # Main UI sections (sidebar, content)
+├── storage/                # Local data or temporary storage
+├── main.py                 # App entry point
+├── pyproject.toml          # Dependency management with Poetry
+└── README.md               # This file
 ```
-uv run flet run
-```
 
-Run as a web app:
+## 🌗 Light/Dark Theme Switch
 
-```
-uv run flet run --web
-```
+This portfolio includes support for dark and light themes, switchable manually or automatically based on screen size.
 
-### Poetry
+## 🧪 Run the Project Locally
 
-Install dependencies from `pyproject.toml`:
-
-```
+You can clone and run the project with:
+```bash
+git clone https://github.com/Rafael-Melo/portifolio.git
+cd portifolio
 poetry install
+poetry run python src/main.py
 ```
 
-Run as a desktop app:
+## 📌 License
 
-```
-poetry run flet run
-```
+Distributed under the [MIT](LICENSE). See LICENSE for more information.
 
-Run as a web app:
-
-```
-poetry run flet run --web
-```
-
-For more details on running the app, refer to the [Getting Started Guide](https://flet.dev/docs/getting-started/).
-
-## Build the app
-
-### Android
-
-```
-flet build apk -v
-```
-
-For more details on building and signing `.apk` or `.aab`, refer to the [Android Packaging Guide](https://flet.dev/docs/publish/android/).
-
-### iOS
-
-```
-flet build ipa -v
-```
-
-For more details on building and signing `.ipa`, refer to the [iOS Packaging Guide](https://flet.dev/docs/publish/ios/).
-
-### macOS
-
-```
-flet build macos -v
-```
-
-For more details on building macOS package, refer to the [macOS Packaging Guide](https://flet.dev/docs/publish/macos/).
-
-### Linux
-
-```
-flet build linux -v
-```
-
-For more details on building Linux package, refer to the [Linux Packaging Guide](https://flet.dev/docs/publish/linux/).
-
-### Windows
-
-```
-flet build windows -v
-```
-
-For more details on building Windows package, refer to the [Windows Packaging Guide](https://flet.dev/docs/publish/windows/).
+Made with 💻, ☕ and 💙 by Rafael Melo — Turning code into real-world solutions
