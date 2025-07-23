@@ -54,8 +54,8 @@ This portfolio includes support for dark and light themes, switchable manually o
 
 You can clone and run the project with:
 ```bash
-git clone https://github.com/Rafael-Melo/portifolio.git
-cd portifolio
+git clone https://github.com/Rafael-Melo/portfolio.git
+cd portfolio
 poetry install
 poetry run python src/main.py
 ```
