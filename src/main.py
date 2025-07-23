@@ -111,7 +111,7 @@ class App:
         saved_theme = self.page.client_storage.get("dark_mode")
         self.dark_mode = saved_theme != "False"  # padrão é True
         self.theme_toggle_btn = ft.FloatingActionButton(
-            icon=ft.icons.LIGHT_MODE if self.dark_mode else ft.icons.DARK_MODE,
+            icon=ft.Icons.LIGHT_MODE if self.dark_mode else ft.Icons.DARK_MODE,
             on_click=self.toggle_theme,
             tooltip="Alternar tema",
             bgcolor=ft.Colors.PRIMARY,
@@ -136,7 +136,7 @@ class App:
         self.page.theme = AppTheme.dark if self.dark_mode else AppTheme.light
         self.page.bgcolor = ft.Colors.BLACK if self.dark_mode else ft.Colors.WHITE
         self.content.content = main_content(self.dark_mode)
-        self.theme_toggle_btn.icon = ft.icons.LIGHT_MODE if self.dark_mode else ft.icons.DARK_MODE
+        self.theme_toggle_btn.icon = ft.Icons.LIGHT_MODE if self.dark_mode else ft.Icons.DARK_MODE
         self.show_app_bar()
         self.page.update()
 

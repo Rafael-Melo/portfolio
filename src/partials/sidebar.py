@@ -29,22 +29,22 @@ def sidebar_content():
         controls=[
             ft.Row(
                 controls=[
-                    ft.Text(value='Residência:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                    ft.Text(value='Brasil', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    ft.Text(value='Nacionalidade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value='Brasileiro', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ],
                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             ),
             ft.Row(
                 controls=[
-                    ft.Text(value='Cidade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                    ft.Text(value='Artur Nogueira', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    ft.Text(value='Disponível para:', theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value='Remoto e híbrido', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ],
                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             ),
             ft.Row(
                 controls=[
-                    ft.Text(value='Idade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                    ft.Text(value='36', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    ft.Text(value='Fuso horário:', theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value='GMT-3 (Brasília)', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ],
                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             ),
@@ -55,7 +55,7 @@ def sidebar_content():
         controls=[
             SkillRing(title='Português', value=1),
             SkillRing(title='Inglês', value=0.70),
-            SkillRing(title='Francês', value=0.15),
+            SkillRing(title='Italiano', value=0.15),
         ]
     )
 
