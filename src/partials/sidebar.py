@@ -56,6 +56,7 @@ def sidebar_content():
             SkillRing(title='Português', value=1),
             SkillRing(title='Inglês', value=0.70),
             SkillRing(title='Italiano', value=0.15),
+            SkillRing(title='Francês', value=0.15),
         ]
     )
 
