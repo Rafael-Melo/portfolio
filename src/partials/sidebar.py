@@ -63,17 +63,44 @@ def sidebar_content():
     skills = ft.Column(
         controls=[
             SkillProgresseBar(title='Python', value=0.8),
+            SkillProgresseBar(title='SQL', value=0.7),
             SkillProgresseBar(title='HTML', value=0.9),
             SkillProgresseBar(title='CSS', value=0.9),
-            SkillProgresseBar(title='SQL', value=0.7),
         ]
     )
 
+    # technologies = ft.Column(
+    #     controls=[
+    #         SkillList(title='Flet, Streamlit'),
+    #         SkillList(title='Django, Flask, FastApi'),
+    #         SkillList(title='SQLAlchemy, PostgreSQL, NoSQL'),
+    #         SkillList(title='REST APIs, Requests, Selenium, Pandas'),
+    #         SkillList(title='Pytest'),
+    #         SkillList(title='Docker, Linux'),
+    #         SkillList(title='Versionamento com Git'),
+    #     ],
+    #     alignment=ft.MainAxisAlignment.START,
+    #     spacing=0,
+    # )
+
     technologies = ft.Column(
         controls=[
-            SkillList(title='Flet'),
-            SkillList(title='Django, Flask, FastApi'),
+            ft.Text("🧰 Frameworks e Bibliotecas", weight=ft.FontWeight.BOLD),
+            SkillList(title='Flet, Streamlit'),
+            SkillList(title='Django, Flask, FastAPI'),
+            ft.Text('', size=6),
+            ft.Text("🗄️ Banco de dados", weight=ft.FontWeight.BOLD),
+            SkillList(title='SQLAlchemy, PostgreSQL, NoSQL'),
+            ft.Text('', size=6),
+            ft.Text("🌐 Web & Integrações", weight=ft.FontWeight.BOLD),
+            SkillList(title='REST APIs, Requests, Selenium, Pandas'),
+            ft.Text('', size=6),    
+            ft.Text("⚙️ Ferramentas e DevOps", weight=ft.FontWeight.BOLD),
+            SkillList(title='Docker, Linux'),
             SkillList(title='Versionamento com Git'),
+            ft.Text('', size=6),
+            ft.Text("🧪 Testes", weight=ft.FontWeight.BOLD),
+            SkillList(title='Pytest'),
         ],
         alignment=ft.MainAxisAlignment.START,
         spacing=0,
