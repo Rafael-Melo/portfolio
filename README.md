@@ -2,7 +2,7 @@
 
 Welcome to my portfolio, developed with [Flet](https://flet.dev) — a modern Python framework for building web, desktop, and mobile apps from a single codebase.
 
-![Portfolio Preview](assets/img/preview.png)
+![Portfolio Preview](./preview.png)
 
 ---
 
