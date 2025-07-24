@@ -118,7 +118,7 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
                                 ft.TextSpan(
                                     text=user,
                                     url=linkedin_url,
-                                    style=ft.TextStyle(weight=ft.FontWeight.W_700, color=ft.Colors.INDIGO, size=16,),
+                                    style=ft.TextStyle(weight=ft.FontWeight.W_700, color=ft.Colors.PRIMARY, size=16,),
                                 )
                             ],
                         ),
