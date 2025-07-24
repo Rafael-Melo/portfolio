@@ -102,7 +102,7 @@ def workflow_step(emoji: str, title: str, description: str) -> ft.Container:
         )
     )
 
-def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'img/testimonial-default.jpg'):
+def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'img/testimonial-default.jpg', linkedin_url: str = None):
     return ft.Container(
         bgcolor=ft.Colors.PRIMARY_CONTAINER,
         padding=ft.padding.all(30),
@@ -113,7 +113,15 @@ def testimonial_item(user: str, job: str, testimonial: str, image_src: str = 'im
                 ft.Column(
                     spacing=0,
                     controls=[
-                        ft.Text(value=user, theme_style=ft.TextThemeStyle.LABEL_LARGE),
+                        ft.Text(
+                            spans=[
+                                ft.TextSpan(
+                                    text=user,
+                                    url=linkedin_url,
+                                    style=ft.TextStyle(weight=ft.FontWeight.W_700, color=ft.Colors.INDIGO, size=16,),
+                                )
+                            ],
+                        ),
                         ft.Text(value=job, theme_style=ft.TextThemeStyle.LABEL_MEDIUM, italic=True),
 
                         ft.Container(height=20),
@@ -355,25 +363,29 @@ def main_content(dark_mode: bool = True):
                 user='Aline de Carvalho Silva',
                 job='Cientista de Dados',
                 testimonial='O Rafael é um desenvolvedor extremamente dedicado e curioso. Está sempre em busca de novos aprendizados para aplicar em seus projetos e evoluir constantemente.',
-                image_src='img/testimonial_01.jpg'
+                image_src='img/testimonial_01.jpg',
+                linkedin_url= 'https://www.linkedin.com/in/aline-de-carvalho-silva-73b222204'
             ),
             testimonial_item(
                 user='Jean Carlo Gomes da Silva',
                 job='Analista de Dados',
                 testimonial='Um dos grandes diferenciais do Rafael é sua habilidade de comunicação. Ele consegue alinhar ideias com clareza, o que facilita muito o trabalho em equipe.',
-                image_src='img/testimonial_02.jpg'
+                image_src='img/testimonial_02.jpg',
+                linkedin_url= 'https://www.linkedin.com/in/jean-carlo-gomes-da-silva-4058bbba'
             ),
             testimonial_item(
                 user='Vaniely Kreitlo',
                 job='Analista de Sistemas',
                 testimonial='Tive a oportunidade de trabalhar com o Rafael, ele é muito comunicativo, possui grande facilidade para trabalhar em equipe. Ele está sempre em busca de novos conhecimentos e possui aprendizado rápido.',
-                image_src='img/testimonial_03.jpeg'
+                image_src='img/testimonial_03.jpeg',
+                linkedin_url= None
             ),
             testimonial_item(
                 user='Anônimo',
                 job='Desenvolvedor júnior',
                 testimonial='Rafael tem um domínio impressionante de Python e atenção aos detalhes. Fiquei surpreso com sua capacidade de replicar interfaces complexas de forma fiel e funcional.',
-                image_src='img/testimonial-default.jpg'
+                image_src='img/testimonial-default.jpg',
+                linkedin_url= None
             ),
         ]
     )
