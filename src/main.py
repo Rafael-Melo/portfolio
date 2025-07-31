@@ -1,6 +1,7 @@
 import flet as ft
 from partials.sidebar import sidebar
 from partials.content import main_content
+from partials.welcome_screen import welcome_screen
 
 # xs      <576px
 # sm      ≥576px
@@ -106,6 +107,12 @@ class AppTheme:
     )
 
 class App:
+    def show_portfolio(self):
+        self.main()
+        self.apply_theme()
+        self.page.on_resized = self.show_app_bar
+        self.show_app_bar()
+
     def __init__(self, page: ft.Page):
         self.page = page
         saved_theme = self.page.client_storage.get("dark_mode")
@@ -117,10 +124,7 @@ class App:
             bgcolor=ft.Colors.PRIMARY,
             mini=True,
         )
-        self.main()
-        self.apply_theme()
-        self.page.on_resized = self.show_app_bar
-        self.show_app_bar()
+        welcome_screen(self.page, on_finish=self.show_portfolio)
     
     def toggle_sidebar(self, e):
         self.sidebar.col['xs'] = 12 if self.sidebar.col['xs'] == 0 else 0
