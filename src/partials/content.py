@@ -336,7 +336,7 @@ def main_content(dark_mode: bool = True):
         controls=[
             project_item(title='Cards', description='Cards estilo RPG. Interface animada e estilizada construída com Flet', url='https://github.com/Rafael-Melo/cards'),
             project_item(title='Calculadora do iPhone', description='Calculadora com o mesmo design do App do iPhone', url='https://github.com/Rafael-Melo/iphone-calculator'),
-            project_item(title='ToDo App', description='Aplicativo para gerenciamento de tarefas com integração com banco de dados', url=''),
+            project_item(title='ToDo App', description='Aplicativo para gerenciamento de tarefas com integração com banco de dados', url='https://github.com/Rafael-Melo/ToDo'),
             project_item(title='Sistema de Login', description='Sistema completo de autenticação de usuário com suporte a recuperação de senha e cadastro de novos usuários', url=''),
             project_item(title='Contador', description='Aplicativo que contabiliza os cliques de um botão', url=''),
         ],
